@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+// enum BookCategory {
+//     MYSTERY = 0;
+//     SCIENCE_FICTION = 1;
+//     SELF_HELP = 2;
+// }
+
+message ProductsRequest {
+    int32 id = 1;
+}
+
+message Products {
+    int32 id = 1;
+    string title = 2;
+}
+
+message ProductsResponse {
+    repeated Products products = 1;
+}
+
+service ProductsService {
+    rpc Product (ProductsRequest) returns (ProductsResponse);
+}
