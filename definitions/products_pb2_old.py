@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eproducts.proto\"\x1d\n\x0fProductsRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"%\n\x08Products\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\"-\n\x10ProductsResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\"5\n\x14ProductsResponseList\x12\x1d\n\x02id\x18\x01 \x03(\x0b\x32\x11.ProductsResponse2E\n\x0fProductsService\x12\x32\n\x07Product\x12\x10.ProductsRequest\x1a\x15.ProductsResponseListb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eproducts.proto\"\x1d\n\x0fProductsRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"%\n\x08Products\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\")\n\x10ProductsResponse\x12\x15\n\x02id\x18\x01 \x03(\x0b\x32\t.Products2A\n\x0fProductsService\x12.\n\x07Product\x12\x10.ProductsRequest\x1a\x11.ProductsResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'products_pb2', globals())
@@ -25,9 +25,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PRODUCTS._serialized_start=49
   _PRODUCTS._serialized_end=86
   _PRODUCTSRESPONSE._serialized_start=88
-  _PRODUCTSRESPONSE._serialized_end=133
-  _PRODUCTSRESPONSELIST._serialized_start=135
-  _PRODUCTSRESPONSELIST._serialized_end=188
-  _PRODUCTSSERVICE._serialized_start=190
-  _PRODUCTSSERVICE._serialized_end=259
+  _PRODUCTSRESPONSE._serialized_end=129
+  _PRODUCTSSERVICE._serialized_start=131
+  _PRODUCTSSERVICE._serialized_end=196
 # @@protoc_insertion_point(module_scope)

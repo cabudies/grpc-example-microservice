@@ -1,13 +1,21 @@
 import uvicorn
 from fastapi import FastAPI, APIRouter
 import grpc
+import os
+import sys
+import pathlib
 
 # from compiled_pb.auth_pb2_grpc import AuthStub
 # from compiled_pb.auth_pb2 import AuthenticationRequest
-from products_pb2_grpc import ProductsServiceStub
-from products_pb2 import ProductsRequest
-# from ..definitions.products_pb2_grpc import ProductsServiceStub
-# from ..definitions.products_pb2 import ProductsRequest
+# from products_pb2_grpc import ProductsServiceStub
+# from products_pb2 import ProductsRequest
+
+sys.path.append(str(pathlib.Path(__file__).resolve().parents[1]))
+
+# print("parents======", str(pathlib.Path(__file__).resolve().parents[1]))
+
+from definitions.products_pb2_grpc import ProductsServiceStub
+from definitions.products_pb2 import ProductsRequest
 
 
 app = FastAPI(title="Orders_GRPC")
@@ -56,12 +64,10 @@ def orders():
     client = ProductsServiceStub(channel)
     request = ProductsRequest(id=1)
     response = client.Product(request)
+    print("response=========", response)
+    print("type(response)======", type(response))
 
-    data = {
-        "id": response.id,
-        "name": response.name
-    }
-    return data
+    return "hello world"
 
 
 app.include_router(router, prefix="/orders")

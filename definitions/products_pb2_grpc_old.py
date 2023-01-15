@@ -2,7 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import products_pb2 as products__pb2
+# import products_pb2 as products__pb2
+from . import products_pb2 as products__pb2
 
 
 class ProductsServiceStub(object):
@@ -14,8 +15,8 @@ class ProductsServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Products = channel.unary_unary(
-                '/ProductsService/Products',
+        self.Product = channel.unary_unary(
+                '/ProductsService/Product',
                 request_serializer=products__pb2.ProductsRequest.SerializeToString,
                 response_deserializer=products__pb2.ProductsResponse.FromString,
                 )
@@ -24,7 +25,7 @@ class ProductsServiceStub(object):
 class ProductsServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Products(self, request, context):
+    def Product(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,7 +34,7 @@ class ProductsServiceServicer(object):
 
 def add_ProductsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Products': grpc.unary_unary_rpc_method_handler(
+            'Product': grpc.unary_unary_rpc_method_handler(
                     servicer.Product,
                     request_deserializer=products__pb2.ProductsRequest.FromString,
                     response_serializer=products__pb2.ProductsResponse.SerializeToString,
@@ -49,7 +50,7 @@ class ProductsService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Products(request,
+    def Product(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,7 +60,7 @@ class ProductsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ProductsService/Products',
+        return grpc.experimental.unary_unary(request, target, '/ProductsService/Product',
             products__pb2.ProductsRequest.SerializeToString,
             products__pb2.ProductsResponse.FromString,
             options, channel_credentials,

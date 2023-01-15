@@ -2,7 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import products_pb2 as products__pb2
+# import products_pb2 as products__pb2
+from . import products_pb2 as products__pb2
 
 
 class ProductsServiceStub(object):
@@ -17,7 +18,7 @@ class ProductsServiceStub(object):
         self.Product = channel.unary_unary(
                 '/ProductsService/Product',
                 request_serializer=products__pb2.ProductsRequest.SerializeToString,
-                response_deserializer=products__pb2.ProductsResponse.FromString,
+                response_deserializer=products__pb2.ProductsResponseList.FromString,
                 )
 
 
@@ -36,7 +37,7 @@ def add_ProductsServiceServicer_to_server(servicer, server):
             'Product': grpc.unary_unary_rpc_method_handler(
                     servicer.Product,
                     request_deserializer=products__pb2.ProductsRequest.FromString,
-                    response_serializer=products__pb2.ProductsResponse.SerializeToString,
+                    response_serializer=products__pb2.ProductsResponseList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -61,6 +62,6 @@ class ProductsService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ProductsService/Product',
             products__pb2.ProductsRequest.SerializeToString,
-            products__pb2.ProductsResponse.FromString,
+            products__pb2.ProductsResponseList.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

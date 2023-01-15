@@ -16,9 +16,14 @@ message Products {
 }
 
 message ProductsResponse {
-    repeated Products products = 1;
+    int32 id = 1;
+    string title = 2;
+}
+
+message ProductsResponseList {
+    repeated ProductsResponse products = 1;
 }
 
 service ProductsService {
-    rpc Product (ProductsRequest) returns (ProductsResponse);
+    rpc Product (ProductsRequest) returns (ProductsResponseList);
 }

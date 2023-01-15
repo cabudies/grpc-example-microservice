@@ -14,8 +14,8 @@ from products_pb2 import ProductsResponse
 from products_pb2_grpc import ProductsServiceServicer, add_ProductsServiceServicer_to_server
 
 class Service(ProductsServiceServicer):
-    def Health(self, request, context):
-        return request
+    # def Health(self, request, context):
+    #     return request
 
     def ProductsResponse(self, request, context):
         # expected_dateline = datetime.utcnow() + timedelta(days=request.story_points)

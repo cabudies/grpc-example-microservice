@@ -9,19 +9,6 @@
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
-            "cwd": "${workspaceFolder}/products",
-            "args": [
-                "main:app"
-                , "--reload"
-            ],
-            "jinja": true,
-            "justMyCode": true
-        },
-        {
-            "name": "Python: FastAPI",
-            "type": "python",
-            "request": "launch",
-            "module": "uvicorn",
             "cwd": "${workspaceFolder}/orders",
             "args": [
                 "main:app"
