@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-# import products_pb2 as products__pb2
 from . import products_pb2 as products__pb2
 
 
