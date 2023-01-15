@@ -1,7 +1,8 @@
+import json
 import uvicorn
 from fastapi import FastAPI, APIRouter
 import grpc
-import os
+from google.protobuf.json_format import MessageToDict, MessageToJson
 import sys
 import pathlib
 
@@ -64,10 +65,9 @@ def orders():
     client = ProductsServiceStub(channel)
     request = ProductsRequest(id=1)
     response = client.Product(request)
-    print("response=========", response)
-    print("type(response)======", type(response))
-
-    return "hello world"
+    final_list = []
+    final_list = list(map(lambda x: MessageToDict(x), response.products))
+    return final_list
 
 
 app.include_router(router, prefix="/orders")
